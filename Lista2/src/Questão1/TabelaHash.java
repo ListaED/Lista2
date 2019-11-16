@@ -34,6 +34,7 @@ public class TabelaHash {
         for(int i = 0; i < getTam(); i++) {
             tabela[i] = new Amigo();
             tabela[i].setSituacao("L");
+            tabela[i].
         }
     }
     
