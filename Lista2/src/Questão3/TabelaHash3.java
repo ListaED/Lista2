@@ -4,14 +4,12 @@
  * and open the template in the editor.
  */
 package Questão3;
-
-
 /**
  *
  * @author DELL
  */
 public class TabelaHash3 {
-
+    
     private int tam = 20;
     private Aluno tabela[] = new Aluno[tam];
 
@@ -38,20 +36,15 @@ public class TabelaHash3 {
         }
     }
 
-    public void inserir(int cod, String nome, float nota) {
-        int i = 0;
-        while (i < tam && tabela[(cod + i) % tam].getSituacao() != "L" && tabela[(cod + i) % tam].getSituacao() != "R") {
-            i++;
-        }
-
-        if (i < tam) {
-            tabela[(cod + i) % tam].setCod(cod);
-            tabela[(cod + i) % tam].setNome(nome);
-            tabela[(cod + i) % tam].setNotaFinal(nota);
-            tabela[(cod + i) % tam].setSituacao("O");
-        }
-        else System.out.println("Tabela cheia");
+        public void inserir(int pos, Aluno a){
+        Hash novo = new Hash();
+        novo.getAluno(a);
+        novo.setProx(tabela[pos]);
+        
+        novo.setProx(tabela[pos]);
+        tabela[pos] = novo;
     }
+
 
 //    public void remover(int n) {
 //        int posicao = buscar(n);

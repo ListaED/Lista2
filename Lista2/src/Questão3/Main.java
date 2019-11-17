@@ -50,7 +50,8 @@ public class Main {
                         nota = sc.nextFloat();
          
                         pos = hash.funcaoHashing(cod);
-                        hash.inserir(pos, nome, nota);
+                        Aluno a = new Aluno(cod, nome, nota);
+                        hash.inserir(pos, a);
                         break;
                     }
 
