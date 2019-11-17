@@ -11,7 +11,7 @@ import java.util.Scanner;
  *
  * @author DELL
  */
-public class HashLista {
+public class HashListaLivro {
     
     public static class Hash{
         int chave;
