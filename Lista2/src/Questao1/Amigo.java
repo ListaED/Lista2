@@ -1,8 +1,9 @@
+//GUSTAVO MARTINS PACHECO   HT3000231
+//JUAN FELIPE CAVALARI BAILKE   HT3000796
 
 package Questao1;
 
 import java.util.Objects;
-
 
 public class Amigo {
     

@@ -1,16 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+//GUSTAVO MARTINS PACHECO   HT3000231
+//JUAN FELIPE CAVALARI BAILKE   HT3000796
+
 package Questão2;
 
 import java.util.Scanner;
 
-/**
- *
- * @author DELL
- */
 public class Main {
 
     public static void main(String[] args) {
@@ -57,29 +51,25 @@ public class Main {
                     }
 
                     case 3: {
-                        System.out.println("Digite a chave(entrada): ");
+                        System.out.println("Digite a entrada: ");
                         pos = sc.nextInt();
                         nome = hash.consultaEntrada(pos);
                         System.out.println("Nome: " + nome);
-                        //System.out.println("Chave: " + chave + " - Nome: " + nome);
-                        
-//                        int j = hash.buscar(chave, nome); 
-//                        hash.mostrarPessoa(j);
-
                         break;
                     }
 
                     case 4: {
-
+                        //CONSULTAR PESSOAS PELA INICIAL DO NOME
+                        System.out.println("Digite a letra inicial: ");
+                        char inicial = sc.next().charAt(0);
+                        hash.consultaInicialNome(inicial);
                         break;
                     }
 
                     case 5: {
-                        System.out.println("Digite o nome da pessoa a ser excluído:");
+                        System.out.println("Digite o nome a ser removido: ");
                         nome = sc.nextLine();
-                        letra = hash.funcaoASCII(nome);
-                        
-//                        hash.remover(letra);
+                        hash.removerNome(nome);
                         break;
                     }
 

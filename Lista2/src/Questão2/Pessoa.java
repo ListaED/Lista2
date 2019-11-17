@@ -9,7 +9,7 @@ package Questão2;
  *
  * @author DELL
  */
-public class Pessoa {
+public class Pessoa implements Comparable<Pessoa> {
 
     private int chaveCodigo;
     private String nome;
@@ -41,7 +41,20 @@ public class Pessoa {
     }
 
 //</editor-fold>
-
-
     
+    @Override
+    public String toString() {
+        return " " + this.nome;
+    }
+
+    @Override
+    public int compareTo(Pessoa outro) {
+        int compareInt = this.nome.compareTo(outro.nome);
+        if (compareInt < 0) {
+            return -1;
+        }
+        if (compareInt > 0) {
+            return 1;
+        }
+        return 0;    }
 }
