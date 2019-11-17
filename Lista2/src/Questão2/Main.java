@@ -59,8 +59,10 @@ public class Main {
                         System.out.println("Digite um nome: ");
                         nome = sc.next();
                         pos = hash.funcaoASCII(nome);
-                        int j = hash.buscar(pos, nome);
                         
+                        //System.out.println("Chave: " + pos + " - Nome: " + nome);
+                        
+                        int j = hash.buscar(pos, nome); 
                         hash.mostrarPessoa(j);
 
                         break;
