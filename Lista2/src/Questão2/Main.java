@@ -14,15 +14,16 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        
-        int n = 20;
-        TabelaHashQuad tab = new TabelaHashQuad();
-        
-        
-        Scanner sc = new Scanner(System.in);
 
-        boolean continua = true;
-        while (continua == true) {
+        int opt, pos, i;
+        String nome;
+
+        TabelaHash2 hash = new TabelaHash2();
+        Pessoa tabela[] = new Pessoa[hash.getTam()];
+
+        hash.inicializar();
+
+        do {
 
             System.out.println("\nDigite a alternativa desejada:\n"
                     + "1)Inserir pessoas\n"
@@ -32,46 +33,52 @@ public class Main {
                     + "5)Excluir uma pessoa \n"
                     + "6)Sair");
 
-            int alternativa = sc.nextInt();
-            
-            switch (alternativa) {
-                case 1:  {
-                    tab.inicializar();
-                
-                    System.out.println("Digite o nome da pessoa ");
-                    for(int i = 0 ; i < n ; i++){
-                    
-                    
-                    String nome = sc.next();
-                    int pos = tab.funcaoASCII(nome);
-                    tab.inserir(pos, nome);
-                    System.out.println("Posição: " + pos + "Nome: " + nome );
-                    System.out.println("Digite o nome da próxima pessoa ");
+            Scanner sc = new Scanner(System.in);
+            opt = sc.nextInt();
+            sc.nextLine();
+
+            if (opt < 1 || opt > 4) {
+                System.out.println("Opção inválida, tente novamente...");
+            } else {
+                switch (opt) {
+                    case 1: {
+
+                        System.out.println("Digite o nome da pessoa ");
+                        nome = sc.next();
+                        pos = hash.funcaoASCII(nome);
+                        hash.inserir(pos, nome);              
+                        break;
                     }
-                    
-                    
-                    //int pos = TabelaHashQuad.funcaoASCII(nome);
-                //tab.inserir(tab.funcaoASCII(nome), nome);
-                    
-                    
 
+                    case 2: {
+                        hash.mostrarHash();
+                        break;
+                    }
+
+                    case 3: {
+                        System.out.println("Digite um nome: ");
+                        nome = sc.next();
+                        pos = hash.funcaoASCII(nome);
+                        int j = hash.buscar(pos, nome);
+                        
+                        hash.mostrarPessoa(j);
+
+                        break;
+                    }
+
+                    case 4: {
+
+                        break;
+                    }
+
+                    case 5: {
+
+                        break;
+                    }
 
                 }
-                
-                case 2: {
-                    
-                }
-                
-                case 3: {
-                    
-                }
-                
             }
-
-            if (alternativa == 6) {
-                continua = false;
-            }
-        }
+        } while (opt != 6);
 
     }
 
