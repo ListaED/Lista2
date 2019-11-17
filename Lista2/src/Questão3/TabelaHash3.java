@@ -38,8 +38,8 @@ public class TabelaHash3 {
 
         public void inserir(int pos, Aluno a){
         Hash novo = new Hash();
-        novo.getAluno(a);
-        novo.setProx(tabela[pos]);
+        novo.setAluno(a);
+        novo.setProx((Hash)tabela[pos]);
         
         novo.setProx(tabela[pos]);
         tabela[pos] = novo;
