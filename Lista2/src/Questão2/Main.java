@@ -62,8 +62,8 @@ public class Main {
                         
                         //System.out.println("Chave: " + chave + " - Nome: " + nome);
                         
-                        int j = hash.buscar(chave, nome); 
-                        hash.mostrarPessoa(j);
+//                        int j = hash.buscar(chave, nome); 
+//                        hash.mostrarPessoa(j);
 
                         break;
                     }
