@@ -11,7 +11,7 @@ package Questão2;
  */
 public class TabelaHash2 {
 
-    private int tam = 20;
+    private int tam = 26;
     private Pessoa tabela[] = new Pessoa[tam];
 
     public int getTam() {
@@ -45,23 +45,25 @@ public class TabelaHash2 {
         }
 
         if (i < tam) {
+            tabela[(pos + i) % tam].setChaveCodigo(pos);
             tabela[(pos + i) % tam].setNome(nome);
             tabela[(pos + i) % tam].setSituacao("O");
         } else {
             System.out.println("Tabela cheia");
         }
     }
-
-    public void remover(String nome) {
-        for(int i = 0; i < tam; i++) {
-            if(tabela[i].getNome().equals(nome)) {
-                tabela[i].setSituacao("R");
-            }
-            
-        }
-    }
+//
+//    public void remover(String chave) {
+//        
+//        for(int i = 0; i < tam; i++) {
+//            if(tabela[i].getNome().equals(nome)) {
+//                tabela[i].setSituacao("R");
+//            }
+//            
+//        }
+//    }
     
-    public int buscar(int n, String nome) {
+    public int consultaInicialNome(int n, String nome) {
         int i = 0;
         int pos = funcaoHashing(n);
         while (i < tam && tabela[(pos + i) % tam].getSituacao() != "L" && tabela[(pos + i) % tam].getNome() != nome) {
@@ -74,6 +76,10 @@ public class TabelaHash2 {
             return tam;
         }
     }
+    
+        public String consultaEntrada(int pos) {
+            return tabela[pos].getNome();  
+    }
 
     public int funcaoHashing(int num) {
         return num % tam;
@@ -83,7 +89,10 @@ public class TabelaHash2 {
         System.out.println("Nome:\n");
         for (int i = 0; i < tam; i++) {
             if (tabela[i].getSituacao() == "O") {
-                System.out.println(tabela[i].getNome());
+                System.out.println("Entrada: " + tabela[i].getChaveCodigo());
+                System.out.println("Nome : " + tabela[i].getNome());
+//                System.out.println(tabela[i].getChaveCodigo());
+//                System.out.println(tabela[i].getNome());
             }
         }
     }

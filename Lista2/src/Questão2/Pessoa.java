@@ -11,12 +11,20 @@ package Questão2;
  */
 public class Pessoa {
 
+    private int chaveCodigo;
     private String nome;
     private String situacao;
+    
+        public int getChaveCodigo() {
+        return chaveCodigo;
+    }
 
     //<editor-fold defaultstate="collapsed" desc="Getters & Setters">
-    
-        public String getNome() {
+    public void setChaveCodigo(int chaveCodigo) {
+        this.chaveCodigo = chaveCodigo;
+    }
+
+    public String getNome() {
         return nome;
     }
 

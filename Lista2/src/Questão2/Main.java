@@ -15,7 +15,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int opt, chave, i;
+        int opt, letra, i, pos;
         String nome;
 
         TabelaHash2 hash = new TabelaHash2();
@@ -28,7 +28,7 @@ public class Main {
             System.out.println("\nDigite a alternativa desejada:\n"
                     + "1)Inserir pessoas\n"
                     + "2)Consultar todas as pessoas\n"
-                    + "3)Consultar uma pessoa\n"
+                    + "3)Consultar uma pessoa pela entrada\n"
                     + "4)Consultar as pessoas com uma inicial digitada\n"
                     + "5)Excluir uma pessoa \n"
                     + "6)Sair");
@@ -45,8 +45,9 @@ public class Main {
 
                         System.out.println("Digite o nome da pessoa ");
                         nome = sc.next();
-                        chave = hash.funcaoASCII(nome);
-                        hash.inserir(chave, nome);              
+                        letra = hash.funcaoASCII(nome);
+                        pos = hash.funcaoHashing(letra);
+                        hash.inserir(pos, nome);              
                         break;
                     }
 
@@ -56,10 +57,10 @@ public class Main {
                     }
 
                     case 3: {
-                        System.out.println("Digite um nome: ");
-                        nome = sc.next();
-                        chave = hash.funcaoASCII(nome);
-                        
+                        System.out.println("Digite a chave(entrada): ");
+                        pos = sc.nextInt();
+                        nome = hash.consultaEntrada(pos);
+                        System.out.println("Nome: " + nome);
                         //System.out.println("Chave: " + chave + " - Nome: " + nome);
                         
 //                        int j = hash.buscar(chave, nome); 
@@ -76,7 +77,9 @@ public class Main {
                     case 5: {
                         System.out.println("Digite o nome da pessoa a ser excluído:");
                         nome = sc.nextLine();
-                        hash.remover(nome);
+                        letra = hash.funcaoASCII(nome);
+                        
+//                        hash.remover(letra);
                         break;
                     }
 
