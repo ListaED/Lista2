@@ -15,7 +15,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        int opt, pos, i;
+        int opt, chave, i;
         String nome;
 
         TabelaHash2 hash = new TabelaHash2();
@@ -45,8 +45,8 @@ public class Main {
 
                         System.out.println("Digite o nome da pessoa ");
                         nome = sc.next();
-                        pos = hash.funcaoASCII(nome);
-                        hash.inserir(pos, nome);              
+                        chave = hash.funcaoASCII(nome);
+                        hash.inserir(chave, nome);              
                         break;
                     }
 
@@ -58,11 +58,11 @@ public class Main {
                     case 3: {
                         System.out.println("Digite um nome: ");
                         nome = sc.next();
-                        pos = hash.funcaoASCII(nome);
+                        chave = hash.funcaoASCII(nome);
                         
-                        //System.out.println("Chave: " + pos + " - Nome: " + nome);
+                        //System.out.println("Chave: " + chave + " - Nome: " + nome);
                         
-                        int j = hash.buscar(pos, nome); 
+                        int j = hash.buscar(chave, nome); 
                         hash.mostrarPessoa(j);
 
                         break;
