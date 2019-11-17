@@ -16,6 +16,8 @@ public class Main {
     public static void main(String[] args) {
         
         int n = 20;
+        TabelaHashQuad tab = new TabelaHashQuad();
+        
         
         Scanner sc = new Scanner(System.in);
 
@@ -33,11 +35,25 @@ public class Main {
             int alternativa = sc.nextInt();
             
             switch (alternativa) {
-                case 1: {
-
-                    int pos = 0;
+                case 1:  {
+                    tab.inicializar();
+                
                     System.out.println("Digite o nome da pessoa ");
-                    String nome = sc.nextLine();
+                    for(int i = 0 ; i < n ; i++){
+                    
+                    
+                    String nome = sc.next();
+                    int pos = tab.funcaoASCII(nome);
+                    tab.inserir(pos, nome);
+                    System.out.println("Posição: " + pos + "Nome: " + nome );
+                    System.out.println("Digite o nome da próxima pessoa ");
+                    }
+                    
+                    
+                    //int pos = TabelaHashQuad.funcaoASCII(nome);
+                //tab.inserir(tab.funcaoASCII(nome), nome);
+                    
+                    
 
 
                 }

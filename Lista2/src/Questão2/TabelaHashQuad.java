@@ -10,9 +10,11 @@ package Questão2;
  * @author DELL
  */
 public class TabelaHashQuad {
+
     
     private int tam = 26;
-    private Pessoa tabela[] = new Pessoa[tam];
+    private char livre;
+    Pessoa tabela[] = new Pessoa[tam];
 
     public int getTam() {
         return tam;
@@ -38,8 +40,9 @@ public class TabelaHashQuad {
     }
     
     public void inserir(int pos, String nome) {
-        int i = 0;
+        int i = 1;
         while (i < tam && tabela[(pos + i) % tam].getSituacao() != "L" && tabela[(pos + i) % tam].getSituacao() != "R") {
+            pos = (pos + i) % tam;
             i++;
         }
 
@@ -50,20 +53,21 @@ public class TabelaHashQuad {
         else System.out.println("Tabela cheia");
     }
     
-    public void remover(int n) {
-        int posicao = buscar(n);
-        
-        if(posicao < tam) {
-            tabela[posicao].setSituacao("R");
-        }
-        else System.out.println("Elemento não está presente");
-        
-    }
+//    public void remover(int n) {
+//        int posicao = buscar(n);
+//        
+//        if(posicao < tam) {
+//            tabela[posicao].setSituacao("R");
+//        }
+//        else System.out.println("Elemento não está presente");
+//        
+//    }
     
 //    public int buscar(int n) {
 //        int i = 0;
-//        int pos = funcaoPessoa(n);
+//        int pos = funcaoHash(n);
 //        while(i < tam && tabela[(pos+i)%tam].getSituacao() != "L" && tabela[(pos+i)%tam].getMes() != n){
+//            pos = (pos + i) % tam;
 //            i++;
 //        }
 //        if(tabela[(pos+i)%tam].getMes() == n && tabela[(pos+i)%tam].getSituacao() != "R")
@@ -71,11 +75,19 @@ public class TabelaHashQuad {
 //        else
 //            return tam;
 //    }
-    
-//    public int funcaoPessoa(int num) {
+//    
+//    public int funcaoHash(int num) {
 //        return num % tam;
 //    }
 
+    // FUNÇÃO ABAIXO OK
+    public int funcaoASCII(String nome){
+        
+        nome = nome.toLowerCase();
+        int num = nome.charAt(0);
+        return num;
+    }
+    
 //    public void mostrarHash() {
 //        for(int i = 0; i < tam; i++) {
 //            if(tabela[i].getSituacao() == "O"){

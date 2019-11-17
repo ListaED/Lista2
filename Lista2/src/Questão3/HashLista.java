@@ -5,6 +5,8 @@
  */
 package Questão3;
 
+import java.util.Scanner;
+
 /**
  *
  * @author DELL
@@ -84,10 +86,26 @@ public class HashLista {
             System.out.println("Digite sua opção\n");
             op = entrada.nextInt();
             
-            
-            
-        }while (op!= 4);
-        
+            if (op < 1 || op > 4){
+                System.out.println("Opção Inválida!");
+            }else{
+                switch (op){
+                    case 1:
+                        System.out.println("Digite um número:\n");
+                        num = entrada.nextInt();
+                        pos = funcaoHashing(num);
+                        inserir (pos, num);
+                        break;
+                    case 2:
+                        mostrarHash();
+                        break;
+                    case 3:
+                        System.out.println("Digite um número:\n");
+                        num = entrada.nextInt();
+                        excluirHash(num);
+                        break;
+                }
+            }
+        }while (op!= 4);   
     }
-    
 }

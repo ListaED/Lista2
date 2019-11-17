@@ -49,6 +49,8 @@ public class TabelaHash {
             tabela[(pos + i) % tam].setDia(dia);
             tabela[(pos + i) % tam].setMes(mes);
             tabela[(pos + i) % tam].setAno(ano);
+            
+            
             tabela[(pos + i) % tam].setSituacao("O");
         }
         else System.out.println("Tabela cheia");
