@@ -11,7 +11,7 @@ package Questão1;
  */
 public class TabelaHash {
     
-    private int tam = 8;
+    private int tam = 20;
     private Amigo tabela[] = new Amigo[tam];
 
     public int getTam() {
@@ -65,7 +65,7 @@ public class TabelaHash {
     
     public int buscar(int n) {
         int i = 0;
-        int pos = funcaoAmigo(n);
+        int pos = funcaoHashing(n);
         while(i < tam && tabela[(pos+i)%tam].getSituacao() != "L" && tabela[(pos+i)%tam].getMes() != n){
             i++;
         }
@@ -75,16 +75,18 @@ public class TabelaHash {
             return tam;
     }
     
-    public int funcaoAmigo(int num) {
+    public int funcaoHashing(int num) {
         return num % tam;
     }
 
     public void mostrarHash() {
+        System.out.println("Nome  |  Dia  |  Mês  |  Ano\n");
         for(int i = 0; i < tam; i++) {
             if(tabela[i].getSituacao() == "O"){
-                System.out.println("Entrada " + i + ": " +
-                        tabela[i].getMes() +
-                        " " + tabela[i].getSituacao());
+                System.out.println(tabela[i].getNome() + "  |  " +
+                        tabela[i].getDia() + "  |  " +
+                        tabela[i].getMes() + "  |  " +
+                        tabela[i].getAno());
             }
         }
     }
