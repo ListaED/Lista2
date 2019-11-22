@@ -1,6 +1,8 @@
 
 package Questao1;
 
+import java.util.Objects;
+
 
 public class Amigo {
     
@@ -51,5 +53,5 @@ public class Amigo {
         this.situacao = situacao;
     }
 //</editor-fold>
-    
+
 }

@@ -74,7 +74,7 @@ public class Main {
                         break;
                     case 4:
                         System.out.println("Digite o nome a ser removido: ");
-                        teste.setNome(sc.nextLine());
+                        nome = sc.nextLine();
                         hash.removerPorNome(teste);
                         break;
                     case 5:

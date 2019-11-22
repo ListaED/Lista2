@@ -109,9 +109,8 @@ public class TabelaHash {
     public void removerPorNome(Amigo nome) {
 
         for (int i = 0; i < tam; i++) {
-            int pos = funcaoHashing(i);
-            if (tabela[pos].getNome().equals(nome.getNome())) {
-                tabela[pos].setSituacao("R");
+            if (tabela[i].getNome().equals(nome)) {
+                tabela[i].setSituacao("R");
             }
         }
     }
