@@ -24,7 +24,7 @@ public class Main {
         
         TabelaHash hash = new TabelaHash();
         Amigo tabela[] = new Amigo[hash.getTam()];
-        Amigo teste = new Amigo();
+        
         
         hash.inicializar();
         
@@ -75,7 +75,7 @@ public class Main {
                     case 4:
                         System.out.println("Digite o nome a ser removido: ");
                         nome = sc.nextLine();
-                        hash.removerPorNome(teste);
+                        hash.removerPorNome(nome);
                         break;
                     case 5:
                         System.out.println("Digite o mês: ");

@@ -106,19 +106,27 @@ public class TabelaHash {
         }
     }
 
-    public void removerPorNome(Amigo nome) {
-
+    public void removerPorNome(String nome) {
+        int chave = 0;
         for (int i = 0; i < tam; i++) {
-            if (tabela[i].getNome().equals(nome)) {
-                tabela[i].setSituacao("R");
+            if (tabela[i].getNome() == nome) {
+                chave = tabela[i].getMes();
+            }
+
+            int pos = buscar(chave);
+            if (pos < tam) {
+                tabela[pos].setSituacao("R");
+                System.out.println("Amigo removido");
+            } else {
+                System.out.println("Nenhum amigo encontrado...");
             }
         }
     }
-    
+
     public void removerPorMes(int mes) {
-        
-        for(int i = 0; i < tam; i++) {
-            if(tabela[i].getMes() == mes) {
+
+        for (int i = 0; i < tam; i++) {
+            if (tabela[i].getMes() == mes) {
                 tabela[i].setSituacao("R");
             }
         }
