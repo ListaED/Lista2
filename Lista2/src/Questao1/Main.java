@@ -48,7 +48,7 @@ public class Main {
                 switch(opt){
                     case 1:
                         System.out.println("Digite o nome do amigo: ");
-                        nome = sc.nextLine();
+                        nome = sc.next();
                         System.out.println("Digite o dia de nascimento: ");
                         dia = sc.nextInt();
                         System.out.println("Digite o mês de nascimento: ");
@@ -74,7 +74,7 @@ public class Main {
                         break;
                     case 4:
                         System.out.println("Digite o nome a ser removido: ");
-                        nome = sc.nextLine();
+                        nome = sc.next();
                         hash.removerPorNome(nome);
                         break;
                     case 5:

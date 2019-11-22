@@ -33,6 +33,7 @@ public class TabelaHash {
     public void inicializar() {
         for (int i = 0; i < getTam(); i++) {
             tabela[i] = new Amigo();
+            tabela[i].setNome("");
             tabela[i].setSituacao("L");
         }
     }
@@ -95,32 +96,26 @@ public class TabelaHash {
     }
 
     public void maioresDe18() {
-        System.out.println("Nome  |  Dia  |  Mês  |  Ano\n");
+        int contador = 0;
         for (int i = 0; i < tam; i++) {
             if (2019 - tabela[i].getAno() > 18 && tabela[i].getSituacao() == "O") {
-                System.out.println(tabela[i].getNome() + "  |  "
-                        + tabela[i].getDia() + "  |  "
-                        + tabela[i].getMes() + "  |  "
-                        + tabela[i].getAno() + tabela[i].getSituacao());
+                contador++;
             }
         }
+        
+        if(contador == 0)
+            System.out.println("Nenhum amigo com mais de 18 anos...");
+        else System.out.println(contador + " amigos com mais de 18 anos");
     }
 
     public void removerPorNome(String nome) {
         int chave = 0;
         for (int i = 0; i < tam; i++) {
-            if (tabela[i].getNome() == nome) {
+            if (tabela[i].getNome().trim().equals(nome)) {
                 chave = tabela[i].getMes();
             }
-
-            int pos = buscar(chave);
-            if (pos < tam) {
-                tabela[pos].setSituacao("R");
-                System.out.println("Amigo removido");
-            } else {
-                System.out.println("Nenhum amigo encontrado...");
-            }
         }
+        remover(chave);
     }
 
     public void removerPorMes(int mes) {
