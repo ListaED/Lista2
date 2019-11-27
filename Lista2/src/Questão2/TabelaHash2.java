@@ -1,17 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+//GUSTAVO MARTINS PACHECO   HT3000231
+//JUAN FELIPE CAVALARI BAILKE   HT3000796
+
 package Questão2;
 
-/**
- *
- * @author DELL
- */
 public class TabelaHash2 {
 
-    private int tam = 20;
+    private int tam = 26;
     private Pessoa tabela[] = new Pessoa[tam];
 
     public int getTam() {
@@ -45,34 +39,31 @@ public class TabelaHash2 {
         }
 
         if (i < tam) {
+            tabela[(pos + i) % tam].setChaveCodigo(pos);
             tabela[(pos + i) % tam].setNome(nome);
             tabela[(pos + i) % tam].setSituacao("O");
         } else {
             System.out.println("Tabela cheia");
         }
     }
-
-    public void remover(String nome) {
-        for(int i = 0; i < tam; i++) {
-            if(tabela[i].getNome().equals(nome)) {
-                tabela[i].setSituacao("R");
+    
+    public void consultaInicialNome(char inicial1) {
+        
+        char inicial2 = 0;
+        for (int i = 0; i < tam; i++) {
+            String nome = tabela[i].getNome();
+            if (nome != null) {
+                inicial2 = nome.charAt(0);
             }
-            
+            int num12 = 1;
+            if (inicial1 == inicial2 && tabela[i].getSituacao() == "O") {
+                System.out.println("Nome: " + tabela[i].getNome());
+            }
         }
     }
     
-    public int buscar(int n, String nome) {
-        int i = 0;
-        int pos = funcaoHashing(n);
-        while (i < tam && tabela[(pos + i) % tam].getSituacao() != "L" && tabela[(pos + i) % tam].getNome() != nome) {
-            pos = (pos + i) / tam;
-            i++;
-        }
-        if (tabela[(pos + i) % tam].getNome() == nome && tabela[(pos + i) % tam].getSituacao() != "R") {
-            return (pos + i) % tam;
-        } else {
-            return tam;
-        }
+    public String consultaEntrada(int pos) {
+        return tabela[pos].getNome();
     }
 
     public int funcaoHashing(int num) {
@@ -80,17 +71,15 @@ public class TabelaHash2 {
     }
 
     public void mostrarHash() {
-        System.out.println("Nome:\n");
         for (int i = 0; i < tam; i++) {
             if (tabela[i].getSituacao() == "O") {
-                System.out.println(tabela[i].getNome());
+                System.out.println("");
+                System.out.println("Entrada: " + i);
+                System.out.println("Chave: " + tabela[i].getChaveCodigo());
+                System.out.println("Nome : " + tabela[i].getNome());
+                System.out.println("");
             }
         }
-    }
-
-    public void mostrarPessoa(int n) {
-        System.out.println("Nome\n");
-        System.out.println(tabela[n].getNome());
     }
 
     public int funcaoASCII(String nome) {
@@ -99,5 +88,21 @@ public class TabelaHash2 {
         int num = nome.charAt(0);
         return num;
     }
+
+    public void removerNome(String nome) {
+        for (int i = 0; i < tam; i++) {
+            String nome2 = tabela[i].getNome();
+            if (nome2 != null) {
+                int cmp = tabela[i].getNome().compareTo(nome);
+                if (cmp == 0) {
+                    tabela[i].setSituacao("R");
+                    System.out.println("Pessoa removida");
+                } else {
+                    System.out.println("Nenhuma pessoa encontrada...");
+                }
+            }
+        }
+    }
+    
 
 }

@@ -1,19 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Questao1;
 
-/**
- *
- * @author Pichau
- */
 public class TabelaHash {
 
     private int tam = 20;
     private Amigo tabela[] = new Amigo[tam];
 
+    //<editor-fold defaultstate="collapsed" desc="Getters & Setters">
     public int getTam() {
         return tam;
     }
@@ -29,7 +21,8 @@ public class TabelaHash {
     public void setTabela(Amigo[] tabela) {
         this.tabela = tabela;
     }
-
+    //</editor-fold>
+    
     public void inicializar() {
         for (int i = 0; i < getTam(); i++) {
             tabela[i] = new Amigo();
